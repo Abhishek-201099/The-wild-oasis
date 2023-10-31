@@ -37,7 +37,7 @@ const Discount = styled.div`
 `;
 
 export default function CabinRow({ cabin }) {
-  const { isCreating, createCabin } = useCreateCabin();
+  const { createCabin } = useCreateCabin();
   const {
     id: cabinId,
     name,
