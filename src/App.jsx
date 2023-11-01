@@ -17,6 +17,7 @@ import AppLayout from "./ui/AppLayout";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import { Toaster } from "react-hot-toast";
+import Booking from "./pages/Booking";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/bookings",
         element: <Bookings />,
+      },
+      {
+        path: "/bookings/:bookingId",
+        element: <Booking />,
       },
       {
         path: "/cabins",
