@@ -35,13 +35,19 @@ const FilterButton = styled.button`
   }
 `;
 
-export default function Filter({ filterField, options }) {
+export default function Filter({ filterField, options, searchParamsToReset }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const currentFilter = searchParams.get(filterField) || options.at(0).value;
 
   function handleClick(value) {
     searchParams.set(filterField, value);
+
+    // In this project - the wild oasis.
+    // Reseting the pagination to 1 upon change of filters to match the length of results.
+    searchParamsToReset?.map((param) => {
+      searchParams.set(param.name, param.value);
+    });
     setSearchParams(searchParams);
   }
 
