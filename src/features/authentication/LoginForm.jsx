@@ -9,8 +9,8 @@ import { useUser } from "./useUser";
 import { useMoveBack } from "../../hooks/useMoveBack";
 
 function LoginForm() {
-  const [email, setEmail] = useState("abhishek@email.com");
-  const [password, setPassword] = useState("thewildoasis");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { login, isLoading } = useLogin();
 
   // If user isAuthenticated -> redirect to dashboard.
