@@ -5,11 +5,19 @@ import Input from "../../ui/Input";
 import SpinnerMini from "../../ui/SpinnerMini";
 import FormRowVertical from "../../ui/FormRowVertical";
 import { useLogin } from "./useLogin";
+import { useUser } from "./useUser";
+import { useMoveBack } from "../../hooks/useMoveBack";
 
 function LoginForm() {
   const [email, setEmail] = useState("abhishek@email.com");
   const [password, setPassword] = useState("thewildoasis");
   const { login, isLoading } = useLogin();
+
+  // If user isAuthenticated -> redirect to dashboard.
+  const { isAuthenticated } = useUser();
+  const moveBack = useMoveBack();
+
+  if (isAuthenticated) moveBack();
 
   function handleSubmit(e) {
     e.preventDefault();
